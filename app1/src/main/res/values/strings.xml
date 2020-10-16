@@ -1,8 +1,8 @@
 <resources>
 
-    <string name="app_name">ViewPager2 Experiment</string>
+    <string name="app_name">ViewPager2 Experiment1</string>
     <string name="tab_text_format">Tab %d</string>
-    <string name="page_text_format">%1$s: Hello world from section %2$d.</string>
+    <string name="page_text_format">%1$s: Hello world from page %2$d.</string>
     <string name="reload_pages">Reload pages</string>
 
 </resources>
