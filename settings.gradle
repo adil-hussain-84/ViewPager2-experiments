@@ -1,2 +1,4 @@
-rootProject.name = "ViewPager2Experiments"
+rootProject.name = 'ViewPager2Experiments'
+
 include ':app1'
+include ':app2'

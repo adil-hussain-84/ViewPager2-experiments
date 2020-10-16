@@ -6,7 +6,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId 'com.tazkiyatech.viewpager2.experiments.app1'
+        applicationId 'com.tazkiyatech.viewpager2.experiments.app2'
         minSdkVersion 21
         targetSdkVersion 30
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
