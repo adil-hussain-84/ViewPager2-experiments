@@ -2,8 +2,9 @@ package com.tazkiyatech.viewpager2.experiments.app1
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,10 +12,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val viewPager: ViewPager = findViewById(R.id.viewPager)
-        viewPager.adapter = ViewPagerAdapter(this, supportFragmentManager)
-
+        val viewPager: ViewPager2 = findViewById(R.id.viewPager)
         val tabLayout: TabLayout = findViewById(R.id.tabLayout)
-        tabLayout.setupWithViewPager(viewPager)
+
+        viewPager.adapter = ViewPagerAdapter(this)
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = getString(R.string.tab_text_format, position + 1)
+        }.attach()
     }
 }
