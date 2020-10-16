@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">ViewPager2 Experiment</string>
+    <string name="tab_text_format">Tab %d</string>
+    <string name="page_text_format">Hello world from section %d.</string>
+
+</resources>
