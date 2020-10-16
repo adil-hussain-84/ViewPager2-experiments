@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import java.text.DateFormat
+import java.util.*
 
 class PageFragment : Fragment() {
 
@@ -26,8 +28,10 @@ class PageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val formattedTime = DateFormat.getTimeInstance(DateFormat.MEDIUM).format(Date())
+
         val textView: TextView = view.findViewById(R.id.textView)
-        textView.text = getString(R.string.page_text_format, pageNumber)
+        textView.text = getString(R.string.page_text_format, formattedTime, pageNumber)
     }
 
     companion object {
