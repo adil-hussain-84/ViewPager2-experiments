@@ -15,9 +15,7 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
         val adapterDataObserver = object : AdapterDataObserver() {
 
             override fun onChanged() {
-                super.onChanged()
-                currentOffset = nextOffset
-                nextOffset += itemCount
+                currentOffset = nextOffset; nextOffset += itemCount
             }
         }
 
