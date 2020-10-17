@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.reloadPagesMenuItem -> {
-                (viewPager.adapter as? ViewPagerAdapter)?.reloadPages()
+                viewPager.adapter?.notifyDataSetChanged()
                 true
             }
             else -> super.onOptionsItemSelected(item)

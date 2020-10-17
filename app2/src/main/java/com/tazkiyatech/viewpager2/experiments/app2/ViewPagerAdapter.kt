@@ -1,14 +1,28 @@
 package com.tazkiyatech.viewpager2.experiments.app2
 
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import java.util.*
 
-class ViewPagerAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
+class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
+    FragmentStateAdapter(fragmentActivity) {
 
-    private var timestamp = Date().time
+    private var currentOffset = 0L
+    private var nextOffset = itemCount.toLong()
+
+    init {
+        val adapterDataObserver = object : AdapterDataObserver() {
+
+            override fun onChanged() {
+                super.onChanged()
+                currentOffset = nextOffset
+                nextOffset += itemCount
+            }
+        }
+
+        registerAdapterDataObserver(adapterDataObserver)
+    }
 
     override fun createFragment(position: Int): Fragment {
         return PageFragment.newInstance(position + 1)
@@ -19,15 +33,10 @@ class ViewPagerAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
     }
 
     override fun getItemId(position: Int): Long {
-        return timestamp + position
+        return currentOffset + position
     }
 
     override fun containsItem(itemId: Long): Boolean {
-        return itemId >= timestamp && itemId < (timestamp + itemCount)
-    }
-
-    fun reloadPages() {
-        timestamp = Date().time
-        notifyDataSetChanged()
+        return itemId >= currentOffset && itemId < (currentOffset + itemCount)
     }
 }
