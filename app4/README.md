@@ -9,6 +9,9 @@ The [ViewPager2.offscreenPageLimit](https://developer.android.com/reference/andr
 When the application is run, the `ViewPager2` instance, which has an item count of ten, is initialised and only pages 1 and 2 are created, as expected. On tapping the second tab, only page 3 is created, as expected. However, on scrolling to a tab further away – e.g. the tenth tab – and tapping on it, pages 6, 7, 8, 9 and 10 are created.
 The expectation was that only pages 9 and 10 would be created.
 
+Another observation is that when page 3 is navigated to, the expectation is that only pages 2 to 4 will be retained and all other pages will be removed from the view hierarchy.
+However, it seems that three pages either side of the currently visible page are retained at any given time and not one as requested.
+
 ##### Additional links
 
 * See [here](https://issuetracker.google.com/issues/171180138) for the associated bug report in IssueTracker.
