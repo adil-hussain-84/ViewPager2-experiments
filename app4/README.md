@@ -10,7 +10,7 @@ When the application is run, the `ViewPager2` instance, which has an item count 
 The expectation was that only pages 9 and 10 would be created.
 
 Another observation is that when page 3 is navigated to, the expectation is that only pages 2 to 4 will be retained and all other pages will be removed from the view hierarchy.
-However, it seems that three pages either side of the currently visible page are retained at any given time and not one as requested.
+However, it seems that three pages either side of the currently visible page are retained at any given time despite the value of `1` which was passed into the [ViewPager2.offscreenPageLimit](https://developer.android.com/reference/androidx/viewpager2/widget/ViewPager2#setOffscreenPageLimit(int)) property.
 
 ##### Additional links
 
