@@ -38,10 +38,10 @@ class PageFragment : Fragment() {
         private const val PAGE_NUMBER_ARGUMENT = "page_number"
 
         @JvmStatic
-        fun newInstance(sectionNumber: Int): PageFragment {
+        fun newInstance(pageNumber: Int): PageFragment {
             return PageFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(PAGE_NUMBER_ARGUMENT, sectionNumber)
+                    putInt(PAGE_NUMBER_ARGUMENT, pageNumber)
                 }
             }
         }
