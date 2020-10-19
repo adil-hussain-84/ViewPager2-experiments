@@ -1,6 +1,7 @@
 package com.tazkiyatech.viewpager2.experiments.app1
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ class PageFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pageNumber = arguments?.getInt(PAGE_NUMBER_ARGUMENT) ?: 0
+        Log.d("PageFragment", "onCreate(...) called for page number $pageNumber")
     }
 
     override fun onCreateView(
@@ -31,6 +33,11 @@ class PageFragment : Fragment() {
         val formattedTime = DateFormat.getTimeInstance(DateFormat.MEDIUM).format(Date())
 
         textView.text = getString(R.string.page_text_format, formattedTime, pageNumber)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("PageFragment", "onDestroy() called for page number $pageNumber")
     }
 
     companion object {
