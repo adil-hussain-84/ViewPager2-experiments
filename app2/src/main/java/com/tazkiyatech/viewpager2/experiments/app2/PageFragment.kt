@@ -12,7 +12,7 @@ import java.util.*
 
 class PageFragment : Fragment() {
 
-    private var pageNumber: Int = 0
+    private var pageNumber = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

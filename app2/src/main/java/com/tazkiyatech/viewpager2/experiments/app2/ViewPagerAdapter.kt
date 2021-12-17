@@ -5,36 +5,39 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
-    FragmentStateAdapter(fragmentActivity) {
+class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
-    private var currentOffset = 0L
-    private var nextOffset = itemCount.toLong()
+    private var counter = 0L
+    private var itemIds: List<Long>
 
     init {
+        itemIds = generateListOfItemIds()
+
         val adapterDataObserver = object : AdapterDataObserver() {
 
             override fun onChanged() {
-                currentOffset = nextOffset; nextOffset += itemCount
+                itemIds = generateListOfItemIds()
             }
         }
 
         registerAdapterDataObserver(adapterDataObserver)
     }
 
+    private fun generateListOfItemIds() = (1..5).map { counter++ }
+
     override fun createFragment(position: Int): Fragment {
         return PageFragment.newInstance(position + 1)
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return itemIds.size
     }
 
     override fun getItemId(position: Int): Long {
-        return currentOffset + position
+        return itemIds[position]
     }
 
     override fun containsItem(itemId: Long): Boolean {
-        return itemId >= currentOffset && itemId < (currentOffset + itemCount)
+        return itemIds.contains(itemId)
     }
 }
