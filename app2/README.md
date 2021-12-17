@@ -1,4 +1,4 @@
-# FragmentStateAdapter.notifyDataSetChanged() workaround #1
+# FragmentStateAdapter.notifyDataSetChanged() simple workaround
 
 This Android application demonstrates a workaround for the bug wherein calling
 the `FragmentStateAdapter.notifyDataSetChanged()` method does not result in
