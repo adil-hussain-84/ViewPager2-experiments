@@ -21,7 +21,9 @@ implementation in this application
 absolutely minimal such that only the `createFragment(position:)` and `getItemCount()` methods are overridden.
 See
 the [MainActivity.onCreate(savedInstanceState:)](src/main/java/com/tazkiyatech/viewpager2/experiments/app1/MainActivity.kt)
-method for the place where the `FragmentStateAdapter` is associated to the `ViewPager2`. See
+method for the place where
+the [FragmentStateAdapter](https://developer.android.com/reference/androidx/viewpager2/adapter/FragmentStateAdapter)
+is associated to the `ViewPager2`. See
 the [MainActivity.onOptionsItemSelected(item:)](src/main/java/com/tazkiyatech/viewpager2/experiments/app1/MainActivity.kt)
 method for the place where `FragmentStateAdapter.notifyDataSetChanged()` is called.
 
