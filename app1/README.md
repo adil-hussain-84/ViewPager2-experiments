@@ -30,4 +30,5 @@ method for the place where `FragmentStateAdapter.notifyDataSetChanged()` is call
 #### Links
 
 * See [here](https://issuetracker.google.com/issues/171039652) for the associated bug report in IssueTracker.
-* See the [app2](../app2) module in this project for a workaround.
+* See the [app2](../app2) module in this project for a proper workaround.
+* See the [app3](../app3) module in this project for an alternative workaround.
