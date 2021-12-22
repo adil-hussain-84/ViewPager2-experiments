@@ -23,8 +23,6 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapte
         registerAdapterDataObserver(adapterDataObserver)
     }
 
-    private fun generateListOfItemIds() = (1..5).map { counter++ }
-
     override fun createFragment(position: Int): Fragment {
         return PageFragment.newInstance(position + 1)
     }
@@ -40,4 +38,6 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapte
     override fun containsItem(itemId: Long): Boolean {
         return itemIds.contains(itemId)
     }
+
+    private fun generateListOfItemIds() = (1..5).map { counter++ }
 }
