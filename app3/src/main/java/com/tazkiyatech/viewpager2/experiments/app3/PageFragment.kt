@@ -5,8 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_page.*
 import java.text.DateFormat
 import java.util.*
 
@@ -39,7 +39,10 @@ class PageFragment : Fragment() {
 
     fun refreshHelloWorldMessage() {
         val formattedTime = DateFormat.getTimeInstance(DateFormat.MEDIUM).format(Date())
-        textView.text = getString(R.string.page_text_format, formattedTime, pageNumber)
+
+        val textView = view?.findViewById<TextView>(R.id.textView)
+
+        textView?.text = getString(R.string.page_text_format, formattedTime, pageNumber)
     }
 
     companion object {
